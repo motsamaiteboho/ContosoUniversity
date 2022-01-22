@@ -1,0 +1,25 @@
+﻿@model Student
+
+@{ ViewData["Title"] = "Edit Student"; }
+
+<h2>Edit</h2>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit">
+            <input type="hidden" asp-for="StudentID" />
+            <input type="hidden" asp-for="EnrollmentDate" />
+            <partial name="_StudentSumary" model="@Model" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Students" asp-action="Index">Back to List</a>
+</div>
+

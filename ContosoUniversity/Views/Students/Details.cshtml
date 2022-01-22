@@ -1,0 +1,33 @@
+﻿@model Student
+
+@{ ViewData["Title"] = "Details"; }
+
+<h2>Student Details</h2>
+
+<div>
+    <h4>Student</h4>
+    <hr />
+    <partial name="_StudentDetails" model="@Model" />
+
+    <table class="table">
+        <tr>
+            <th>Course Title</th>
+            <th>Grade</th>
+        </tr>
+        @foreach (var item in Model.Enrollments)
+        {
+<tr>
+    <td>
+        @item.Course.Title
+    </td>
+    <td>
+        @item.Grade
+    </td>
+</tr>}
+    </table>
+</div>
+
+<div>
+    <a asp-controller="Students" asp-action="Edit" asp-route-id="@Model.StudentID">Edit</a> |
+    <a asp-controller="Students" asp-action="Index">Back to List</a>
+</div>

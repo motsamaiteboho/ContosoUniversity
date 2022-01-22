@@ -1,0 +1,22 @@
+﻿@model Student
+
+@{ ViewData["Title"] = "Add Student"; }
+
+<h2>Add New Student</h2>
+
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Add">
+           <partial name="_StudentSumary" model="@Model"/>
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-controller="Students" asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Contoso Students</h2>
+
+<p>
+    <a asp-controller="Students" asp-action="Add" >Add New Student</a>
+</p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Last name
+            </th>
+            <th>
+                First name
+            </th>
+            <th>
+                Enrollment date
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Student p in Model)
+        {
+            <tr>
+                <td>
+                    @p.LastName
+                </td>
+                <td>
+                    @p.FirstName
+                </td>
+                <td>
+                    @p.EnrollmentDate.ToString();
+                </td>
+                <td>
+                    <a asp-controller="Students" asp-action="Edit" asp-route-id="@p.StudentID" > Edit</a> |
+                    <a asp-controller="Students" asp-action="Details" asp-route-id="@p.StudentID" > Details</a> |
+                    <a asp-controller="Students" asp-action="Delete" asp-route-id="@p.StudentID" > Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
